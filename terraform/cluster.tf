@@ -20,17 +20,19 @@ module "eks" {
   cluster_version = "1.21"
   cluster_name    = var.cluster_name
   vpc_id          = module.vpc.vpc_id
-  subnets         = ["module.vpc.private_subnets", "module.vpc.public_subnets"]
+  subnets         = module.vpc.private_subnets
   cluster_endpoint_private_access = true
 
   worker_groups = [
     {
       name                          = "worker-group-1"
-      instance_type                 = "m4.large"
-      spot_price = "0.20"
-      asg_desired_capacity          = 3
+      instance_type                 = "t2.medium"
+      spot_price = "0.04"
+      asg_desired_capacity          = 2
+      asg_min_size  = 1
       asg_max_size  = 10
-      additional_security_group_ids = [aws_security_group.worker_group_security_group]
+      health_check_grace_period = 60
+      health_check_type         = "ELB"
     },
   ]
 }
