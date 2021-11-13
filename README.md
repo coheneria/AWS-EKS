@@ -1,5 +1,16 @@
 # devops-eks-finalproject-part2
 
+This project come to demonstarte how to provision EKS cluster on AWS using Terraform and auto-scale it using EKSCTL.
+<p align="center">
+  <img src="https://github.com/coheneria/devops-eks-finalproject-part2/blob/main/files/eks.png" width="100%" height="100%" />
+</p>
+### Export your AWS-CLI credientials:
+```
+export AWS_ACCESS_KEY_ID=xxxxxxxxxxxxxxx
+export AWS_SECRET_ACCESS_KEY=xxxxxxxxxxxxxxx
+export AWS_DEFAULT_REGION=us-east-1
+```
+
 ### Installing Terraform 
 To deploy this tasks's infrastrucure, you need to install Terraform on your local machine:
 https://learn.hashicorp.com/tutorials/terraform/install-cli
@@ -84,4 +95,25 @@ kubectl version --short --client
 Connect to the cluster:<br/>
 ```
 aws eks --region eu-west-1 update-kubeconfig --name wave-eks-finalproject-2
+```
+
+### Install EKSCTL
+https://docs.aws.amazon.com/eks/latest/userguide/eksctl.html
+
+Download and extract the latest release of eksctl with the following command:<br/>
+
+```
+curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+```
+
+Move the extracted binary to /usr/local/bin :<br/>
+
+```
+sudo mv /tmp/eksctl /usr/local/bin
+```
+
+Test that your installation was successful with the following command:<br/>
+
+```
+eksctl version
 ```
