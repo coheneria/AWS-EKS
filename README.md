@@ -4,11 +4,12 @@ This project come to demonstarte how to provision EKS cluster on AWS using Terra
 <p align="center">
   <img src="https://github.com/coheneria/devops-eks-finalproject-part2/blob/main/files/eks.png" width="100%" height="100%" />
 </p>
+
 ### Export your AWS-CLI credientials:
 ```
 export AWS_ACCESS_KEY_ID=xxxxxxxxxxxxxxx
 export AWS_SECRET_ACCESS_KEY=xxxxxxxxxxxxxxx
-export AWS_DEFAULT_REGION=us-east-1
+export AWS_DEFAULT_REGION=eu-west-1
 ```
 
 ### Installing Terraform 
@@ -117,3 +118,16 @@ Test that your installation was successful with the following command:<br/>
 ```
 eksctl version
 ```
+
+### Autoscale the cluster
+
+
+Download and extract the latest release of eksctl with the following command:<br/>
+
+```
+curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+```
+
+<p align="center">
+  <img src="https://github.com/coheneria/devops-finalproject-part1/blob/main/files/photos/appphoto.png" width="100%" height="100%" />
+</p>
